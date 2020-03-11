@@ -3,6 +3,8 @@ const logger = require('morgan');
 const express = require('express');
 const app = express();
 
+const port = 3000;
+
 
 // open up CORS 
 app.use((_, res, next) => {
@@ -16,6 +18,10 @@ app.use(logger('dev'));
 // You can place your routes here, feel free to refactor:
 const { example } = require('./routes');
 app.use('/api/example', example)
+
+app.get('/', (req, res) => {
+    res.send('HELLO FROM SERVER')
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -32,5 +38,9 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+app.listen(port, () => {
+    console.log(`Listening on ${port}`)
+})
 
 module.exports = app;
