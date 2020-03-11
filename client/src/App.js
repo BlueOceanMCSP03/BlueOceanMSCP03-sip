@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import fetch from 'node-fetch';
-// import './App.css';
+import Navigation from './Navigation.jsx'
+import Drinklocation from './Drink_Location.jsx'
+//import './App.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -22,11 +24,8 @@ export default class App extends Component {
     return (
       <>
         <h1>Welcome to Blue Ocean!</h1>
-        <ul>
-          {this.state.seaCreatures.map((creature, index) => (
-            <li key={index}>{creature}</li>
-          ))}
-        </ul>
+        <Drinklocation/>
+        {/* <Navigation /> */}
       </>
     );
   }

@@ -20,9 +20,17 @@ module.exports = {
         loader : 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         include: SRC_DIR,
-        loader: 'css-loader'
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: true
+          }
+        }
+          
+        ]
       }
     ]
   },
